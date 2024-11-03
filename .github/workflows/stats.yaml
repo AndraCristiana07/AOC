@@ -1,0 +1,32 @@
+name: Stats
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+
+    - name: Update Stats
+      run: python3 stats/update.py
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+          commit-message: Stats Update
+          title: Stats Update
+          body: ""
+          base: main
+          branch: stats-update-on-new-commit
+          delete-branch: true
+
+
+
+

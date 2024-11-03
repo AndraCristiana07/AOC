@@ -5,14 +5,15 @@ CCFLAGS = -Wall -Wextra -std=c++17 -O0 -lm
 
 .PHONY: build clean
 
-build: p1 
-run-p1:
-	./p1
+run-exec1: exec1
+	./exec1
+run-exec2: exec2
+	./exec2
 
-# Nu uitați să modificați numele surselor și, eventual, ale executabilelor.
-p1: day11_2.cpp
+exec1: p1.cpp
+	$(CC) -o $@ $^ $(CCFLAGS)
+exec2: p2.cpp
 	$(CC) -o $@ $^ $(CCFLAGS)
 
-# Vom șterge executabilele.
 clean:
-	rm -f p1 
+	rm -f exec1 exec2
