@@ -13,9 +13,12 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+    
+    - name: Init Env
+      run: pip install -r stats/requirements.txt
 
-    - name: Update Stats
-      run: python3 stats/update.py
+    - name: Update README
+      run: python3 stats/benchmark.py && python3 stats/plot_and_readme.py
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
