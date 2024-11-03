@@ -24,7 +24,7 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
           commit-message: Stats Update
-          title: Stats Update
+          title: README Update
           body: ""
           base: main
           branch: stats-update-on-new-commit

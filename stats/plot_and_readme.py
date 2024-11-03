@@ -33,14 +33,14 @@ for year in range(2015, 2024).__reversed__():
                 1: sum([float(x[4]) for x in p1]) / len(p1),
                 2: sum([float(x[4]) for x in p2]) / len(p2),
             }
-            stars.append('<span style="color:gold">★</span>')
+            stars.append('<img src="stats/svg/gold_star.svg">')
         elif done[0]:
             avg[year][day] = {
                 1: sum([float(x[4]) for x in p1]) / len(p1)
             }
-            stars.append('<span style="color:silver">★</span>')
+            stars.append('<img src="stats/svg/silver_star.svg">')
         else:
-            stars.append('<span style="color:silver">☆</span>')
+            stars.append('<img src="stats/svg/outline_star.svg">')
         
     output += f'''
 ### {year}
@@ -121,8 +121,8 @@ for year in df_pivot['Year'].unique():
 
     # Set labels and title for the plot
     ax.set_xlabel("Day")
-    ax.set_ylabel("Value")
-    ax.set_title(f"Values for Year {year}")
+    ax.set_ylabel("Execution Time (s)")
+    ax.set_title(f"Per day execution time ({year})")
 
     # Set x-axis labels as the days
     ax.set_xticks(x)
